@@ -66,30 +66,46 @@ include CMakeFiles/DE_Plot.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/DE_Plot.dir/flags.make
 
-CMakeFiles/DE_Plot.dir/main.cpp.o: CMakeFiles/DE_Plot.dir/flags.make
-CMakeFiles/DE_Plot.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/m8dotpie/Desktop/Projects/DE_Plot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/DE_Plot.dir/main.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DE_Plot.dir/main.cpp.o -c /Users/m8dotpie/Desktop/Projects/DE_Plot/main.cpp
+CMakeFiles/DE_Plot.dir/src/main.cpp.o: CMakeFiles/DE_Plot.dir/flags.make
+CMakeFiles/DE_Plot.dir/src/main.cpp.o: ../src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/m8dotpie/Desktop/Projects/DE_Plot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/DE_Plot.dir/src/main.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DE_Plot.dir/src/main.cpp.o -c /Users/m8dotpie/Desktop/Projects/DE_Plot/src/main.cpp
 
-CMakeFiles/DE_Plot.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DE_Plot.dir/main.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/m8dotpie/Desktop/Projects/DE_Plot/main.cpp > CMakeFiles/DE_Plot.dir/main.cpp.i
+CMakeFiles/DE_Plot.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DE_Plot.dir/src/main.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/m8dotpie/Desktop/Projects/DE_Plot/src/main.cpp > CMakeFiles/DE_Plot.dir/src/main.cpp.i
 
-CMakeFiles/DE_Plot.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DE_Plot.dir/main.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/m8dotpie/Desktop/Projects/DE_Plot/main.cpp -o CMakeFiles/DE_Plot.dir/main.cpp.s
+CMakeFiles/DE_Plot.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DE_Plot.dir/src/main.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/m8dotpie/Desktop/Projects/DE_Plot/src/main.cpp -o CMakeFiles/DE_Plot.dir/src/main.cpp.s
+
+CMakeFiles/DE_Plot.dir/src/glad.c.o: CMakeFiles/DE_Plot.dir/flags.make
+CMakeFiles/DE_Plot.dir/src/glad.c.o: ../src/glad.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/m8dotpie/Desktop/Projects/DE_Plot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/DE_Plot.dir/src/glad.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/DE_Plot.dir/src/glad.c.o -c /Users/m8dotpie/Desktop/Projects/DE_Plot/src/glad.c
+
+CMakeFiles/DE_Plot.dir/src/glad.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/DE_Plot.dir/src/glad.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/m8dotpie/Desktop/Projects/DE_Plot/src/glad.c > CMakeFiles/DE_Plot.dir/src/glad.c.i
+
+CMakeFiles/DE_Plot.dir/src/glad.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/DE_Plot.dir/src/glad.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/m8dotpie/Desktop/Projects/DE_Plot/src/glad.c -o CMakeFiles/DE_Plot.dir/src/glad.c.s
 
 # Object files for target DE_Plot
 DE_Plot_OBJECTS = \
-"CMakeFiles/DE_Plot.dir/main.cpp.o"
+"CMakeFiles/DE_Plot.dir/src/main.cpp.o" \
+"CMakeFiles/DE_Plot.dir/src/glad.c.o"
 
 # External object files for target DE_Plot
 DE_Plot_EXTERNAL_OBJECTS =
 
-DE_Plot: CMakeFiles/DE_Plot.dir/main.cpp.o
+DE_Plot: CMakeFiles/DE_Plot.dir/src/main.cpp.o
+DE_Plot: CMakeFiles/DE_Plot.dir/src/glad.c.o
 DE_Plot: CMakeFiles/DE_Plot.dir/build.make
+DE_Plot: /usr/local/lib/libglfw.3.3.dylib
 DE_Plot: CMakeFiles/DE_Plot.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/m8dotpie/Desktop/Projects/DE_Plot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable DE_Plot"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/m8dotpie/Desktop/Projects/DE_Plot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable DE_Plot"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/DE_Plot.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

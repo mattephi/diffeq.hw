@@ -227,8 +227,17 @@ DE_Plot_BINARY_DIR:STATIC=/Users/m8dotpie/Desktop/Projects/DE_Plot/cmake-build-d
 //Value Computed by CMake
 DE_Plot_SOURCE_DIR:STATIC=/Users/m8dotpie/Desktop/Projects/DE_Plot
 
+//Path to a library.
+GLFW3_LIB:FILEPATH=/usr/local/lib/libglfw.dylib
+
+//Path to a library.
+GLFW_LIB:FILEPATH=/usr/local/lib/libglfw.dylib
+
 //Path to a program.
 ProcessorCount_cmd_sysctl:FILEPATH=/usr/sbin/sysctl
+
+//The directory containing a CMake configuration file for glfw3.
+glfw3_DIR:PATH=/usr/local/lib/cmake/glfw3
 
 
 ########################

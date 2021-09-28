@@ -1,1 +1,1 @@
-/Library/Developer/CommandLineTools/usr/bin/c++ -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/DE_Plot.dir/main.cpp.o -o DE_Plot 
+/Library/Developer/CommandLineTools/usr/bin/c++ -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/DE_Plot.dir/src/main.cpp.o CMakeFiles/DE_Plot.dir/src/glad.c.o -o DE_Plot  -Wl,-rpath,/usr/local/lib /usr/local/lib/libglfw.3.3.dylib 

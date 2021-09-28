@@ -45,6 +45,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/Users/m8dotpie/Desktop/Projects/DE_Plot/include"/>
+					<Add directory="/Users/m8dotpie/Desktop/Projects/DE_Plot/include/imgui"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
@@ -67,6 +68,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/Users/m8dotpie/Desktop/Projects/DE_Plot/include"/>
+					<Add directory="/Users/m8dotpie/Desktop/Projects/DE_Plot/include/imgui"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
@@ -82,7 +84,55 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/src/glad.c">
+		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/include/imgui/imconfig.h">
+			<Option target="DE_Plot"/>
+		</Unit>
+		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/include/imgui/imgui.h">
+			<Option target="DE_Plot"/>
+		</Unit>
+		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/include/imgui/imgui_impl_glfw.h">
+			<Option target="DE_Plot"/>
+		</Unit>
+		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/include/imgui/imgui_impl_opengl3.h">
+			<Option target="DE_Plot"/>
+		</Unit>
+		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/include/imgui/imgui_impl_opengl3_loader.h">
+			<Option target="DE_Plot"/>
+		</Unit>
+		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/include/imgui/imgui_internal.h">
+			<Option target="DE_Plot"/>
+		</Unit>
+		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/include/imgui/imstb_rectpack.h">
+			<Option target="DE_Plot"/>
+		</Unit>
+		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/include/imgui/imstb_textedit.h">
+			<Option target="DE_Plot"/>
+		</Unit>
+		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/include/imgui/imstb_truetype.h">
+			<Option target="DE_Plot"/>
+		</Unit>
+		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/src/glad/glad.c">
+			<Option target="DE_Plot"/>
+		</Unit>
+		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/src/imgui/imgui.cpp">
+			<Option target="DE_Plot"/>
+		</Unit>
+		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/src/imgui/imgui_demo.cpp">
+			<Option target="DE_Plot"/>
+		</Unit>
+		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/src/imgui/imgui_draw.cpp">
+			<Option target="DE_Plot"/>
+		</Unit>
+		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/src/imgui/imgui_impl_glfw.cpp">
+			<Option target="DE_Plot"/>
+		</Unit>
+		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/src/imgui/imgui_impl_opengl3.cpp">
+			<Option target="DE_Plot"/>
+		</Unit>
+		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/src/imgui/imgui_tables.cpp">
+			<Option target="DE_Plot"/>
+		</Unit>
+		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/src/imgui/imgui_widgets.cpp">
 			<Option target="DE_Plot"/>
 		</Unit>
 		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/src/main.cpp">

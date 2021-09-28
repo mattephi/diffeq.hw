@@ -8,11 +8,6 @@ A GUI App for plotting numerical methods of solving Differential Equations.
 - [ ] Runge-Kutta Method
 ## Features
 - [ ] -
-## TODO:
-- [ ] List features
-- [ ] Write todos
-- [ ] Rename the project
-- [ ] Connect DearImGui
 ## Stack:
 - [x] C++20
 - [x] OpenGL 3.3

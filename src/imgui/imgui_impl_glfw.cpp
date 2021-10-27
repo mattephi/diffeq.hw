@@ -39,7 +39,7 @@
 //  2018-01-20: Inputs: Added Horizontal Mouse Wheel support.
 //  2018-01-18: Inputs: Added mapping for ImGuiKey_Insert.
 //  2017-08-25: Inputs: MousePos set to -FLT_MAX,-FLT_MAX when mouse is unavailable/missing (instead of -1,-1).
-//  2016-10-15: Misc: Added a void* user_data parameter to Clipboard function handlers.
+//  2016-10-15: Misc: Added a void* user_data parameter to Clipboard Function handlers.
 
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
@@ -248,7 +248,7 @@ static bool ImGui_ImplGlfw_Init(GLFWwindow* window, bool install_callbacks, Glfw
     // Create mouse cursors
     // (By design, on X11 cursors are user configurable and some cursors may be missing. When a cursor doesn't exist,
     // GLFW will emit an error which will often be printed by the app, so we temporarily disable error reporting.
-    // Missing cursors will return NULL and our _UpdateMouseCursor() function will use the Arrow cursor instead.)
+    // Missing cursors will return NULL and our _UpdateMouseCursor() Function will use the Arrow cursor instead.)
     GLFWerrorfun prev_error_callback = glfwSetErrorCallback(NULL);
     bd->MouseCursors[ImGuiMouseCursor_Arrow] = glfwCreateStandardCursor(GLFW_ARROW_CURSOR);
     bd->MouseCursors[ImGuiMouseCursor_TextInput] = glfwCreateStandardCursor(GLFW_IBEAM_CURSOR);

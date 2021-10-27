@@ -44,10 +44,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = "/Users/m8dotpie/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/212.4746.93/CLion.app/Contents/bin/cmake/mac/bin/cmake"
+CMAKE_COMMAND = "/Users/m8dotpie/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/212.5284.51/CLion.app/Contents/bin/cmake/mac/bin/cmake"
 
 # The command to remove a file.
-RM = "/Users/m8dotpie/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/212.4746.93/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E rm -f
+RM = "/Users/m8dotpie/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/212.5284.51/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -183,6 +183,58 @@ CMakeFiles/DE_Plot.dir/src/imgui/imgui_impl_opengl3.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DE_Plot.dir/src/imgui/imgui_impl_opengl3.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/m8dotpie/Desktop/Projects/DE_Plot/src/imgui/imgui_impl_opengl3.cpp -o CMakeFiles/DE_Plot.dir/src/imgui/imgui_impl_opengl3.cpp.s
 
+CMakeFiles/DE_Plot.dir/src/implot/implot.cpp.o: CMakeFiles/DE_Plot.dir/flags.make
+CMakeFiles/DE_Plot.dir/src/implot/implot.cpp.o: ../src/implot/implot.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/m8dotpie/Desktop/Projects/DE_Plot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/DE_Plot.dir/src/implot/implot.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DE_Plot.dir/src/implot/implot.cpp.o -c /Users/m8dotpie/Desktop/Projects/DE_Plot/src/implot/implot.cpp
+
+CMakeFiles/DE_Plot.dir/src/implot/implot.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DE_Plot.dir/src/implot/implot.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/m8dotpie/Desktop/Projects/DE_Plot/src/implot/implot.cpp > CMakeFiles/DE_Plot.dir/src/implot/implot.cpp.i
+
+CMakeFiles/DE_Plot.dir/src/implot/implot.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DE_Plot.dir/src/implot/implot.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/m8dotpie/Desktop/Projects/DE_Plot/src/implot/implot.cpp -o CMakeFiles/DE_Plot.dir/src/implot/implot.cpp.s
+
+CMakeFiles/DE_Plot.dir/src/implot/implot_items.cpp.o: CMakeFiles/DE_Plot.dir/flags.make
+CMakeFiles/DE_Plot.dir/src/implot/implot_items.cpp.o: ../src/implot/implot_items.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/m8dotpie/Desktop/Projects/DE_Plot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/DE_Plot.dir/src/implot/implot_items.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DE_Plot.dir/src/implot/implot_items.cpp.o -c /Users/m8dotpie/Desktop/Projects/DE_Plot/src/implot/implot_items.cpp
+
+CMakeFiles/DE_Plot.dir/src/implot/implot_items.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DE_Plot.dir/src/implot/implot_items.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/m8dotpie/Desktop/Projects/DE_Plot/src/implot/implot_items.cpp > CMakeFiles/DE_Plot.dir/src/implot/implot_items.cpp.i
+
+CMakeFiles/DE_Plot.dir/src/implot/implot_items.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DE_Plot.dir/src/implot/implot_items.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/m8dotpie/Desktop/Projects/DE_Plot/src/implot/implot_items.cpp -o CMakeFiles/DE_Plot.dir/src/implot/implot_items.cpp.s
+
+CMakeFiles/DE_Plot.dir/src/implot/implot_demo.cpp.o: CMakeFiles/DE_Plot.dir/flags.make
+CMakeFiles/DE_Plot.dir/src/implot/implot_demo.cpp.o: ../src/implot/implot_demo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/m8dotpie/Desktop/Projects/DE_Plot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/DE_Plot.dir/src/implot/implot_demo.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DE_Plot.dir/src/implot/implot_demo.cpp.o -c /Users/m8dotpie/Desktop/Projects/DE_Plot/src/implot/implot_demo.cpp
+
+CMakeFiles/DE_Plot.dir/src/implot/implot_demo.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DE_Plot.dir/src/implot/implot_demo.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/m8dotpie/Desktop/Projects/DE_Plot/src/implot/implot_demo.cpp > CMakeFiles/DE_Plot.dir/src/implot/implot_demo.cpp.i
+
+CMakeFiles/DE_Plot.dir/src/implot/implot_demo.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DE_Plot.dir/src/implot/implot_demo.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/m8dotpie/Desktop/Projects/DE_Plot/src/implot/implot_demo.cpp -o CMakeFiles/DE_Plot.dir/src/implot/implot_demo.cpp.s
+
+CMakeFiles/DE_Plot.dir/src/function.cpp.o: CMakeFiles/DE_Plot.dir/flags.make
+CMakeFiles/DE_Plot.dir/src/function.cpp.o: ../src/function.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/m8dotpie/Desktop/Projects/DE_Plot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/DE_Plot.dir/src/function.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DE_Plot.dir/src/function.cpp.o -c /Users/m8dotpie/Desktop/Projects/DE_Plot/src/function.cpp
+
+CMakeFiles/DE_Plot.dir/src/function.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DE_Plot.dir/src/function.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/m8dotpie/Desktop/Projects/DE_Plot/src/function.cpp > CMakeFiles/DE_Plot.dir/src/function.cpp.i
+
+CMakeFiles/DE_Plot.dir/src/function.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DE_Plot.dir/src/function.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/m8dotpie/Desktop/Projects/DE_Plot/src/function.cpp -o CMakeFiles/DE_Plot.dir/src/function.cpp.s
+
 # Object files for target DE_Plot
 DE_Plot_OBJECTS = \
 "CMakeFiles/DE_Plot.dir/src/main.cpp.o" \
@@ -193,7 +245,11 @@ DE_Plot_OBJECTS = \
 "CMakeFiles/DE_Plot.dir/src/imgui/imgui_widgets.cpp.o" \
 "CMakeFiles/DE_Plot.dir/src/imgui/imgui_demo.cpp.o" \
 "CMakeFiles/DE_Plot.dir/src/imgui/imgui_impl_glfw.cpp.o" \
-"CMakeFiles/DE_Plot.dir/src/imgui/imgui_impl_opengl3.cpp.o"
+"CMakeFiles/DE_Plot.dir/src/imgui/imgui_impl_opengl3.cpp.o" \
+"CMakeFiles/DE_Plot.dir/src/implot/implot.cpp.o" \
+"CMakeFiles/DE_Plot.dir/src/implot/implot_items.cpp.o" \
+"CMakeFiles/DE_Plot.dir/src/implot/implot_demo.cpp.o" \
+"CMakeFiles/DE_Plot.dir/src/function.cpp.o"
 
 # External object files for target DE_Plot
 DE_Plot_EXTERNAL_OBJECTS =
@@ -207,10 +263,14 @@ DE_Plot: CMakeFiles/DE_Plot.dir/src/imgui/imgui_widgets.cpp.o
 DE_Plot: CMakeFiles/DE_Plot.dir/src/imgui/imgui_demo.cpp.o
 DE_Plot: CMakeFiles/DE_Plot.dir/src/imgui/imgui_impl_glfw.cpp.o
 DE_Plot: CMakeFiles/DE_Plot.dir/src/imgui/imgui_impl_opengl3.cpp.o
+DE_Plot: CMakeFiles/DE_Plot.dir/src/implot/implot.cpp.o
+DE_Plot: CMakeFiles/DE_Plot.dir/src/implot/implot_items.cpp.o
+DE_Plot: CMakeFiles/DE_Plot.dir/src/implot/implot_demo.cpp.o
+DE_Plot: CMakeFiles/DE_Plot.dir/src/function.cpp.o
 DE_Plot: CMakeFiles/DE_Plot.dir/build.make
 DE_Plot: /usr/local/lib/libglfw.3.3.dylib
 DE_Plot: CMakeFiles/DE_Plot.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/m8dotpie/Desktop/Projects/DE_Plot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable DE_Plot"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/m8dotpie/Desktop/Projects/DE_Plot/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable DE_Plot"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/DE_Plot.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

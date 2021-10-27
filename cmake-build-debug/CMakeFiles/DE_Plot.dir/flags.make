@@ -5,13 +5,13 @@
 # compile CXX with /Library/Developer/CommandLineTools/usr/bin/c++
 C_DEFINES = 
 
-C_INCLUDES = -I/Users/m8dotpie/Desktop/Projects/DE_Plot/include -I/Users/m8dotpie/Desktop/Projects/DE_Plot/include/imgui -isystem /usr/local/include
+C_INCLUDES = -I/Users/m8dotpie/Desktop/Projects/DE_Plot/include -I/Users/m8dotpie/Desktop/Projects/DE_Plot/include/imgui -I/Users/m8dotpie/Desktop/Projects/DE_Plot/include/implot -isystem /usr/local/include
 
 C_FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/m8dotpie/Desktop/Projects/DE_Plot/include -I/Users/m8dotpie/Desktop/Projects/DE_Plot/include/imgui -isystem /usr/local/include
+CXX_INCLUDES = -I/Users/m8dotpie/Desktop/Projects/DE_Plot/include -I/Users/m8dotpie/Desktop/Projects/DE_Plot/include/imgui -I/Users/m8dotpie/Desktop/Projects/DE_Plot/include/implot -isystem /usr/local/include
 
 CXX_FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -std=gnu++2a
 

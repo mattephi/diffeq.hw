@@ -96,7 +96,7 @@ extern "C" {
 ** implementation together with APIs in newer ARB extensions which 
 ** can be supported by the core profile. It does not, and never will
 ** include functionality removed from the core profile, such as
-** fixed-function vertex and fragment processing.
+** fixed-Function vertex and fragment processing.
 **
 ** Do not #include both <GL/glcorearb.h> and either of <GL/gl.h> or
 ** <GL/glext.h> in the same source file.

@@ -5,15 +5,36 @@ CMakeFiles/DE_Plot.dir/src/glad/glad.c.o: \
  ../include/KHR/khrplatform.h \
  ../include/glad/glad.h \
  ../src/glad/glad.c
+CMakeFiles/DE_Plot.dir/src/function.cpp.o: \
+ ../include/SystemConfiguration.h \
+ ../include/function.h \
+ ../include/imgui/imconfig.h \
+ ../include/imgui/imgui.h \
+ ../include/implot/implot.h \
+ ../include/mixin.h \
+ ../src/function.cpp
 CMakeFiles/DE_Plot.dir/src/imgui/imgui.cpp.o: \
+ ../include/imgui/imconfig.h \
+ ../include/imgui/imgui.h \
+ ../include/imgui/imgui_internal.h \
+ ../include/imgui/imstb_textedit.h \
  ../src/imgui/imgui.cpp
 CMakeFiles/DE_Plot.dir/src/imgui/imgui_demo.cpp.o: \
  ../include/imgui/imconfig.h \
  ../include/imgui/imgui.h \
  ../src/imgui/imgui_demo.cpp
 CMakeFiles/DE_Plot.dir/src/imgui/imgui_draw.cpp.o: \
+ ../include/imgui/imconfig.h \
+ ../include/imgui/imgui.h \
+ ../include/imgui/imgui_internal.h \
+ ../include/imgui/imstb_rectpack.h \
+ ../include/imgui/imstb_textedit.h \
+ ../include/imgui/imstb_truetype.h \
  ../src/imgui/imgui_draw.cpp
 CMakeFiles/DE_Plot.dir/src/imgui/imgui_impl_glfw.cpp.o: \
+ ../include/imgui/imconfig.h \
+ ../include/imgui/imgui.h \
+ ../include/imgui/imgui_impl_glfw.h \
  ../src/imgui/imgui_impl_glfw.cpp \
  /usr/local/include/GLFW/glfw3.h \
  /usr/local/include/GLFW/glfw3native.h \
@@ -23,17 +44,57 @@ CMakeFiles/DE_Plot.dir/src/imgui/imgui_impl_glfw.cpp.o: \
  /usr/local/include/X11/Xmd.h \
  /usr/local/include/X11/Xosdefs.h
 CMakeFiles/DE_Plot.dir/src/imgui/imgui_impl_opengl3.cpp.o: \
+ ../include/imgui/imconfig.h \
+ ../include/imgui/imgui.h \
+ ../include/imgui/imgui_impl_opengl3.h \
+ ../include/imgui/imgui_impl_opengl3_loader.h \
  ../src/imgui/imgui_impl_opengl3.cpp
 CMakeFiles/DE_Plot.dir/src/imgui/imgui_tables.cpp.o: \
+ ../include/imgui/imconfig.h \
+ ../include/imgui/imgui.h \
+ ../include/imgui/imgui_internal.h \
+ ../include/imgui/imstb_textedit.h \
  ../src/imgui/imgui_tables.cpp
 CMakeFiles/DE_Plot.dir/src/imgui/imgui_widgets.cpp.o: \
+ ../include/imgui/imconfig.h \
+ ../include/imgui/imgui.h \
+ ../include/imgui/imgui_internal.h \
+ ../include/imgui/imstb_textedit.h \
  ../src/imgui/imgui_widgets.cpp
+CMakeFiles/DE_Plot.dir/src/implot/implot.cpp.o: \
+ ../include/imgui/imconfig.h \
+ ../include/imgui/imgui.h \
+ ../include/imgui/imgui_internal.h \
+ ../include/imgui/imstb_textedit.h \
+ ../include/implot/implot.h \
+ ../include/implot/implot_internal.h \
+ ../src/implot/implot.cpp
+CMakeFiles/DE_Plot.dir/src/implot/implot_demo.cpp.o: \
+ ../include/imgui/imconfig.h \
+ ../include/imgui/imgui.h \
+ ../include/imgui/imgui_internal.h \
+ ../include/imgui/imstb_textedit.h \
+ ../include/implot/implot.h \
+ ../include/implot/implot_internal.h \
+ ../src/implot/implot_demo.cpp
+CMakeFiles/DE_Plot.dir/src/implot/implot_items.cpp.o: \
+ ../include/imgui/imconfig.h \
+ ../include/imgui/imgui.h \
+ ../include/imgui/imgui_internal.h \
+ ../include/imgui/imstb_textedit.h \
+ ../include/implot/implot.h \
+ ../include/implot/implot_internal.h \
+ ../src/implot/implot_items.cpp
 CMakeFiles/DE_Plot.dir/src/main.cpp.o: \
  ../include/KHR/khrplatform.h \
+ ../include/SystemConfiguration.h \
+ ../include/function.h \
  ../include/glad/glad.h \
  ../include/imgui/imconfig.h \
  ../include/imgui/imgui.h \
  ../include/imgui/imgui_impl_glfw.h \
  ../include/imgui/imgui_impl_opengl3.h \
+ ../include/implot/implot.h \
+ ../include/mixin.h \
  ../src/main.cpp \
  /usr/local/include/GLFW/glfw3.h

@@ -55,8 +55,8 @@ Index of this file:
 // Visual Studio warnings
 #ifdef _MSC_VER
 #pragma warning (disable: 4127)     // condition expression is constant
-#pragma warning (disable: 4505)     // unreferenced local function has been removed (stb stuff)
-#pragma warning (disable: 4996)     // 'This function or variable may be unsafe': strcpy, strdup, sprintf, vsnprintf, sscanf, fopen
+#pragma warning (disable: 4505)     // unreferenced local Function has been removed (stb stuff)
+#pragma warning (disable: 4996)     // 'This Function or variable may be unsafe': strcpy, strdup, sprintf, vsnprintf, sscanf, fopen
 #pragma warning (disable: 6255)     // [Static Analyzer] _alloca indicates failure by raising a stack overflow exception.  Consider using _malloca instead.
 #pragma warning (disable: 26451)    // [Static Analyzer] Arithmetic overflow : Using operator 'xxx' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator 'xxx' to avoid overflow(io.2).
 #pragma warning (disable: 26812)    // [Static Analyzer] The enum type 'xxx' is unscoped. Prefer 'enum class' over 'enum' (Enum.3). [MSVC Static Analyzer)
@@ -68,7 +68,7 @@ Index of this file:
 #pragma clang diagnostic ignored "-Wunknown-warning-option"         // warning: unknown warning group 'xxx'                      // not all warnings are known by all Clang versions and they tend to be rename-happy.. so ignoring warnings triggers new warnings on some configuration. Great!
 #endif
 #if __has_warning("-Walloca")
-#pragma clang diagnostic ignored "-Walloca"                         // warning: use of function '__builtin_alloca' is discouraged
+#pragma clang diagnostic ignored "-Walloca"                         // warning: use of Function '__builtin_alloca' is discouraged
 #endif
 #pragma clang diagnostic ignored "-Wunknown-pragmas"                // warning: unknown warning group 'xxx'
 #pragma clang diagnostic ignored "-Wold-style-cast"                 // warning: use of old-style cast                            // yes, they are more terse.
@@ -78,12 +78,12 @@ Index of this file:
 #pragma clang diagnostic ignored "-Wzero-as-null-pointer-constant"  // warning: zero as null pointer constant                    // some standard header variations use #define NULL 0
 #pragma clang diagnostic ignored "-Wcomma"                          // warning: possible misuse of comma operator here
 #pragma clang diagnostic ignored "-Wreserved-id-macro"              // warning: macro name is a reserved identifier
-#pragma clang diagnostic ignored "-Wdouble-promotion"               // warning: implicit conversion from 'float' to 'double' when passing argument to function  // using printf() is a misery with this as C++ va_arg ellipsis changes float to double.
+#pragma clang diagnostic ignored "-Wdouble-promotion"               // warning: implicit conversion from 'float' to 'double' when passing argument to Function  // using printf() is a misery with this as C++ va_arg ellipsis changes float to double.
 #pragma clang diagnostic ignored "-Wimplicit-int-float-conversion"  // warning: implicit conversion from 'xxx' to 'float' may lose precision
 #elif defined(__GNUC__)
 #pragma GCC diagnostic ignored "-Wpragmas"                  // warning: unknown option after '#pragma GCC diagnostic' kind
-#pragma GCC diagnostic ignored "-Wunused-function"          // warning: 'xxxx' defined but not used
-#pragma GCC diagnostic ignored "-Wdouble-promotion"         // warning: implicit conversion from 'float' to 'double' when passing argument to function
+#pragma GCC diagnostic ignored "-Wunused-Function"          // warning: 'xxxx' defined but not used
+#pragma GCC diagnostic ignored "-Wdouble-promotion"         // warning: implicit conversion from 'float' to 'double' when passing argument to Function
 #pragma GCC diagnostic ignored "-Wconversion"               // warning: conversion to 'xxxx' from 'xxxx' may alter its value
 #pragma GCC diagnostic ignored "-Wstack-protector"          // warning: stack protector not protecting local variables: variable length buffer
 #pragma GCC diagnostic ignored "-Wclass-memaccess"          // [__GNUC__ >= 8] warning: 'memset/memcpy' clearing/writing an object of type 'xxxx' with no trivial copy-assignment; use assignment or value-initialization instead
@@ -115,7 +115,7 @@ namespace IMGUI_STB_NAMESPACE
 
 #if defined(__clang__)
 #pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wunused-function"
+#pragma clang diagnostic ignored "-Wunused-Function"
 #pragma clang diagnostic ignored "-Wmissing-prototypes"
 #pragma clang diagnostic ignored "-Wimplicit-fallthrough"
 #pragma clang diagnostic ignored "-Wcast-qual"              // warning: cast from 'const xxxx *' to 'xxx *' drops const qualifier
@@ -460,7 +460,7 @@ void ImDrawList::AddDrawCmd()
     CmdBuffer.push_back(draw_cmd);
 }
 
-// Pop trailing draw command (used before merging or presenting to user)
+// Pop trailing plot command (used before merging or presenting to user)
 // Note that this leaves the ImDrawList in a state unfit for further commands, as most code assume that CmdBuffer.Size > 0 && CmdBuffer.back().UserCallback == NULL
 void ImDrawList::_PopUnusedDrawCmd()
 {
@@ -491,7 +491,7 @@ void ImDrawList::AddCallback(ImDrawCallback callback, void* callback_data)
 #define ImDrawCmd_HeaderCompare(CMD_LHS, CMD_RHS)   (memcmp(CMD_LHS, CMD_RHS, ImDrawCmd_HeaderSize))    // Compare ClipRect, TextureId, VtxOffset
 #define ImDrawCmd_HeaderCopy(CMD_DST, CMD_SRC)      (memcpy(CMD_DST, CMD_SRC, ImDrawCmd_HeaderSize))    // Copy ClipRect, TextureId, VtxOffset
 
-// Try to merge two last draw commands
+// Try to merge two last plot commands
 void ImDrawList::_TryMergeDrawCmds()
 {
     ImDrawCmd* curr_cmd = &CmdBuffer.Data[CmdBuffer.Size - 1];
@@ -574,7 +574,7 @@ int ImDrawList::_CalcCircleAutoSegmentCount(float radius) const
         return IM_DRAWLIST_CIRCLE_AUTO_SEGMENT_CALC(radius, _Data->CircleSegmentMaxError);
 }
 
-// Render-level scissoring. This is passed down to your render function but not used for CPU-side coarse clipping. Prefer using higher-level ImGui::PushClipRect() to affect logic (hit-testing and widget culling)
+// Render-level scissoring. This is passed down to your render Function but not used for CPU-side coarse clipping. Prefer using higher-level ImGui::PushClipRect() to affect logic (hit-testing and widget culling)
 void ImDrawList::PushClipRect(ImVec2 cr_min, ImVec2 cr_max, bool intersect_with_current_clip_rect)
 {
     ImVec4 cr(cr_min.x, cr_min.y, cr_max.x, cr_max.y);
@@ -704,7 +704,7 @@ void ImDrawList::PrimQuadUV(const ImVec2& a, const ImVec2& b, const ImVec2& c, c
     _IdxWritePtr += 6;
 }
 
-// On AddPolyline() and AddConvexPolyFilled() we intentionally avoid using ImVec2 and superfluous function calls to optimize debug/non-inlined builds.
+// On AddPolyline() and AddConvexPolyFilled() we intentionally avoid using ImVec2 and superfluous Function calls to optimize debug/non-inlined builds.
 // - Those macros expects l-values and need to be used as their own statement.
 // - Those macros are intentionally not surrounded by the 'do {} while (0)' idiom because even that translates to runtime with debug compilers.
 #define IM_NORMALIZE2F_OVER_ZERO(VX,VY)     { float d2 = VX*VX + VY*VY; if (d2 > 0.0f) { float inv_len = ImRsqrt(d2); VX *= inv_len; VY *= inv_len; } } (void)0
@@ -720,7 +720,7 @@ void ImDrawList::AddPolyline(const ImVec2* points, const int points_count, ImU32
 
     const bool closed = (flags & ImDrawFlags_Closed) != 0;
     const ImVec2 opaque_uv = _Data->TexUvWhitePixel;
-    const int count = closed ? points_count : points_count - 1; // The number of line segments we need to draw
+    const int count = closed ? points_count : points_count - 1; // The number of line segments we need to plot
     const bool thick_line = (thickness > _FringeScale);
 
     if (Flags & ImDrawListFlags_AntiAliasedLines)
@@ -734,8 +734,8 @@ void ImDrawList::AddPolyline(const ImVec2* points, const int points_count, ImU32
         const int integer_thickness = (int)thickness;
         const float fractional_thickness = thickness - integer_thickness;
 
-        // Do we want to draw this line using a texture?
-        // - For now, only draw integer-width lines using textures to avoid issues with the way scaling occurs, could be improved.
+        // Do we want to plot this line using a texture?
+        // - For now, only plot integer-width lines using textures to avoid issues with the way scaling occurs, could be improved.
         // - If AA_SIZE is not 1.0f we cannot use the texture path.
         const bool use_texture = (Flags & ImDrawListFlags_AntiAliasedLinesUseTex) && (integer_thickness < IM_DRAWLIST_TEX_LINES_WIDTH_MAX) && (fractional_thickness <= 0.00001f) && (AA_SIZE == 1.0f);
 
@@ -770,9 +770,9 @@ void ImDrawList::AddPolyline(const ImVec2* points, const int points_count, ImU32
             // [PATH 1] Texture-based lines (thick or non-thick)
             // [PATH 2] Non texture-based lines (non-thick)
 
-            // The width of the geometry we need to draw - this is essentially <thickness> pixels for the line itself, plus "one pixel" for AA.
+            // The width of the geometry we need to plot - this is essentially <thickness> pixels for the line itself, plus "one pixel" for AA.
             // - In the texture-based path, we don't use AA_SIZE here because the +1 is tied to the generated texture
-            //   (see ImFontAtlasBuildRenderLinesTexData() function), and so alternate values won't work without changes to that code.
+            //   (see ImFontAtlasBuildRenderLinesTexData() Function), and so alternate values won't work without changes to that code.
             // - In the non texture-based paths, we would allow AA_SIZE to potentially be != 1.0f with a patch (e.g. fringe_scale patch to
             //   allow scaling geometry while preserving one-screen-pixel AA fringe).
             const float half_draw_size = use_texture ? ((thickness * 0.5f) + 1) : AA_SIZE;
@@ -865,7 +865,7 @@ void ImDrawList::AddPolyline(const ImVec2* points, const int points_count, ImU32
         }
         else
         {
-            // [PATH 2] Non texture-based lines (thick): we need to draw the solid line core and thus require four vertices per point
+            // [PATH 2] Non texture-based lines (thick): we need to plot the solid line core and thus require four vertices per point
             const float half_inner_thickness = (thickness - AA_SIZE) * 0.5f;
 
             // If line is not closed, the first and last points need to be generated differently as there are no normals to blend
@@ -1062,7 +1062,7 @@ void ImDrawList::_PathArcToFastEx(const ImVec2& center, float radius, int a_min_
     if (a_step <= 0)
         a_step = IM_DRAWLIST_ARCFAST_SAMPLE_MAX / _CalcCircleAutoSegmentCount(radius);
 
-    // Make sure we never do steps larger than one quarter of the circle
+    // Make sure we never do n larger than one quarter of the circle
     a_step = ImClamp(a_step, 1, IM_DRAWLIST_ARCFAST_TABLE_SIZE / 4);
 
     const int sample_range = ImAbs(a_max_sample - a_min_sample);
@@ -1151,7 +1151,7 @@ void ImDrawList::_PathArcToN(const ImVec2& center, float radius, float a_min, fl
     }
 
     // Note that we are adding a point at both a_min and a_max.
-    // If you are trying to draw a full closed circle you don't want the overlapping points!
+    // If you are trying to plot a full closed circle you don't want the overlapping points!
     _Path.reserve(_Path.Size + (num_segments + 1));
     for (int i = 0; i <= num_segments; i++)
     {
@@ -1738,7 +1738,7 @@ void ImDrawListSplitter::Merge(ImDrawList* draw_list)
             ImDrawCmd* next_cmd = &ch._CmdBuffer[0];
             if (ImDrawCmd_HeaderCompare(last_cmd, next_cmd) == 0 && last_cmd->UserCallback == NULL && next_cmd->UserCallback == NULL)
             {
-                // Merge previous channel last draw command with current channel first draw command if matching.
+                // Merge previous channel last plot command with current channel first draw command if matching.
                 last_cmd->ElemCount += next_cmd->ElemCount;
                 idx_offset += next_cmd->ElemCount;
                 ch._CmdBuffer.erase(ch._CmdBuffer.Data); // FIXME-OPT: Improve for multiple merges.
@@ -1768,7 +1768,7 @@ void ImDrawListSplitter::Merge(ImDrawList* draw_list)
     }
     draw_list->_IdxWritePtr = idx_write;
 
-    // Ensure there's always a non-callback draw command trailing the command-buffer
+    // Ensure there's always a non-callback plot command trailing the command-buffer
     if (draw_list->CmdBuffer.Size == 0 || draw_list->CmdBuffer.back().UserCallback != NULL)
         draw_list->AddDrawCmd();
 
@@ -2271,7 +2271,7 @@ bool    ImFontAtlas::Build()
 #elif defined(IMGUI_ENABLE_STB_TRUETYPE)
         builder_io = ImFontAtlasGetBuilderForStbTruetype();
 #else
-        IM_ASSERT(0); // Invalid Build function
+        IM_ASSERT(0); // Invalid Build Function
 #endif
     }
 
@@ -2298,7 +2298,7 @@ void    ImFontAtlasBuildMultiplyRectAlpha8(const unsigned char table[256], unsig
 
 #ifdef IMGUI_ENABLE_STB_TRUETYPE
 // Temporary data for one source font (multiple source fonts can be merged into one destination ImFont)
-// (C++03 doesn't allow instancing ImVector<> with function-local types so we declare the type here.)
+// (C++03 doesn't allow instancing ImVector<> with Function-local types so we declare the type here.)
 struct ImFontBuildSrcData
 {
     stbtt_fontinfo      FontInfo;
@@ -3168,7 +3168,7 @@ void ImFont::BuildLookupTable()
     // FIXME: Needs proper TAB handling but it needs to be contextualized (or we could arbitrary say that each string starts at "column 0" ?)
     if (FindGlyph((ImWchar)' '))
     {
-        if (Glyphs.back().Codepoint != '\t')   // So we can call this function multiple times (FIXME: Flaky)
+        if (Glyphs.back().Codepoint != '\t')   // So we can call this Function multiple times (FIXME: Flaky)
             Glyphs.resize(Glyphs.Size + 1);
         ImFontGlyph& tab_glyph = Glyphs.back();
         tab_glyph = *FindGlyph((ImWchar)' ');
@@ -3289,7 +3289,7 @@ void ImFont::AddGlyph(const ImFontConfig* cfg, ImWchar codepoint, float x0, floa
 
 void ImFont::AddRemapChar(ImWchar dst, ImWchar src, bool overwrite_dst)
 {
-    IM_ASSERT(IndexLookup.Size > 0);    // Currently this can only be called AFTER the font has been built, aka after calling ImFontAtlas::GetTexDataAs*() function.
+    IM_ASSERT(IndexLookup.Size > 0);    // Currently this can only be called AFTER the font has been built, aka after calling ImFontAtlas::GetTexDataAs*() Function.
     unsigned int index_size = (unsigned int)IndexLookup.Size;
 
     if (dst < index_size && IndexLookup.Data[dst] == (ImWchar)-1 && !overwrite_dst) // 'dst' already exists
@@ -3515,7 +3515,7 @@ ImVec2 ImFont::CalcTextSizeA(float size, float max_width, float wrap_width, cons
     return text_size;
 }
 
-// Note: as with every ImDrawList drawing function, this expects that the font atlas texture is bound.
+// Note: as with every ImDrawList drawing Function, this expects that the font atlas texture is bound.
 void ImFont::RenderChar(ImDrawList* draw_list, float size, ImVec2 pos, ImU32 col, ImWchar c) const
 {
     const ImFontGlyph* glyph = FindGlyph(c);
@@ -3530,7 +3530,7 @@ void ImFont::RenderChar(ImDrawList* draw_list, float size, ImVec2 pos, ImU32 col
     draw_list->PrimRectUV(ImVec2(pos.x + glyph->X0 * scale, pos.y + glyph->Y0 * scale), ImVec2(pos.x + glyph->X1 * scale, pos.y + glyph->Y1 * scale), ImVec2(glyph->U0, glyph->V0), ImVec2(glyph->U1, glyph->V1), col);
 }
 
-// Note: as with every ImDrawList drawing function, this expects that the font atlas texture is bound.
+// Note: as with every ImDrawList drawing Function, this expects that the font atlas texture is bound.
 void ImFont::RenderText(ImDrawList* draw_list, float size, ImVec2 pos, ImU32 col, const ImVec4& clip_rect, const char* text_begin, const char* text_end, float wrap_width, bool cpu_fine_clip) const
 {
     if (!text_end)

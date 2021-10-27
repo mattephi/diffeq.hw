@@ -1,4 +1,4 @@
-"/Users/m8dotpie/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/212.4746.93/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /Users/m8dotpie/Desktop/Projects/DE_Plot
+"/Users/m8dotpie/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/212.5284.51/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /Users/m8dotpie/Desktop/Projects/DE_Plot
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /Users/m8dotpie/Desktop/Projects/DE_Plot/cmake-build-debug

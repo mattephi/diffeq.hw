@@ -48,7 +48,7 @@ Index of this file:
 // - TableUpdateLayout() [Internal]             followup to BeginTable(): setup everything: widths, columns positions, clipping rectangles. Automatically called by the FIRST call to TableNextRow() or TableHeadersRow().
 //    | TableSetupDrawChannels()                - setup ImDrawList channels
 //    | TableUpdateBorders()                    - detect hovering columns for resize, ahead of contents submission
-//    | TableDrawContextMenu()                  - draw right-click context menu
+//    | TableDrawContextMenu()                  - plot right-click context menu
 //-----------------------------------------------------------------------------
 // - TableHeadersRow() or TableHeader()         user submit a headers row (optional)
 //    | TableSortSpecsClickColumn()             - when left-clicked: alter sort order and sort direction
@@ -63,8 +63,8 @@ Index of this file:
 // - [...]                                      user emit contents
 //-----------------------------------------------------------------------------
 // - EndTable()                                 user ends the table
-//    | TableDrawBorders()                      - draw outer borders, inner vertical borders
-//    | TableMergeDrawChannels()                - merge draw channels if clipping isn't required
+//    | TableDrawBorders()                      - plot outer borders, inner vertical borders
+//    | TableMergeDrawChannels()                - merge plot channels if clipping isn't required
 //    | EndChild()                              - (if ScrollX/ScrollY is set)
 //-----------------------------------------------------------------------------
 
@@ -206,7 +206,7 @@ Index of this file:
 // Visual Studio warnings
 #ifdef _MSC_VER
 #pragma warning (disable: 4127)     // condition expression is constant
-#pragma warning (disable: 4996)     // 'This function or variable may be unsafe': strcpy, strdup, sprintf, vsnprintf, sscanf, fopen
+#pragma warning (disable: 4996)     // 'This Function or variable may be unsafe': strcpy, strdup, sprintf, vsnprintf, sscanf, fopen
 #if defined(_MSC_VER) && _MSC_VER >= 1922 // MSVC 2019 16.2 or later
 #pragma warning (disable: 5054)     // operator '|': deprecated between enumerations of different types
 #endif
@@ -225,7 +225,7 @@ Index of this file:
 #pragma clang diagnostic ignored "-Wformat-nonliteral"              // warning: format string is not a string literal            // passing non-literal to vsnformat(). yes, user passing incorrect format strings can crash the code.
 #pragma clang diagnostic ignored "-Wsign-conversion"                // warning: implicit conversion changes signedness
 #pragma clang diagnostic ignored "-Wzero-as-null-pointer-constant"  // warning: zero as null pointer constant                    // some standard header variations use #define NULL 0
-#pragma clang diagnostic ignored "-Wdouble-promotion"               // warning: implicit conversion from 'float' to 'double' when passing argument to function  // using printf() is a misery with this as C++ va_arg ellipsis changes float to double.
+#pragma clang diagnostic ignored "-Wdouble-promotion"               // warning: implicit conversion from 'float' to 'double' when passing argument to Function  // using printf() is a misery with this as C++ va_arg ellipsis changes float to double.
 #pragma clang diagnostic ignored "-Wenum-enum-conversion"           // warning: bitwise operation between different enumeration types ('XXXFlags_' and 'XXXFlagsPrivate_')
 #pragma clang diagnostic ignored "-Wdeprecated-enum-enum-conversion"// warning: bitwise operation between different enumeration types ('XXXFlags_' and 'XXXFlagsPrivate_') is deprecated
 #pragma clang diagnostic ignored "-Wimplicit-int-float-conversion"  // warning: implicit conversion from 'xxx' to 'float' may lose precision
@@ -252,7 +252,7 @@ Index of this file:
 // - TableSetupScrollFreeze()
 //-----------------------------------------------------------------------------
 
-// Configuration
+// EquationConfiguration
 static const int TABLE_DRAW_CHANNEL_BG0 = 0;
 static const int TABLE_DRAW_CHANNEL_BG2_FROZEN = 1;
 static const int TABLE_DRAW_CHANNEL_NOCLIP = 2;                     // When using ImGuiTableFlags_NoClip (this becomes the last visible channel)
@@ -965,7 +965,7 @@ void ImGui::TableUpdateLayout(ImGuiTable* table)
 
         if ((table->EnabledMaskByDisplayOrder & ((ImU64)1 << order_n)) == 0)
         {
-            // Hidden column: clear a few fields and we are done with it for the remainder of the function.
+            // Hidden column: clear a few fields and we are done with it for the remainder of the Function.
             // We set a zero-width clip rect but set Min.y/Max.y properly to not interfere with the clipper.
             column->MinX = column->MaxX = column->WorkMinX = column->ClipRect.Min.x = column->ClipRect.Max.x = offset_x;
             column->WidthGiven = 0.0f;
@@ -992,7 +992,7 @@ void ImGui::TableUpdateLayout(ImGuiTable* table)
         column->MaxX = offset_x + column->WidthGiven + table->CellSpacingX1 + table->CellSpacingX2 + table->CellPaddingX * 2.0f;
 
         // Lock other positions
-        // - ClipRect.Min.x: Because merging draw commands doesn't compare min boundaries, we make ClipRect.Min.x match left bounds to be consistent regardless of merging.
+        // - ClipRect.Min.x: Because merging plot commands doesn't compare min boundaries, we make ClipRect.Min.x match left bounds to be consistent regardless of merging.
         // - ClipRect.Max.x: using WorkMaxX instead of MaxX (aka including padding) makes things more consistent when resizing down, tho slightly detrimental to visibility in very-small column.
         // - ClipRect.Max.x: using MaxX makes it easier for header to receive hover highlight with no discontinuity and display sorting arrow.
         // - FIXME-TABLE: We want equal width columns to have equal (ClipRect.Max.x - WorkMinX) width, which means ClipRect.max.x cannot stray off host_clip_rect.Max.x else right-most column may appear shorter.
@@ -1090,7 +1090,7 @@ void ImGui::TableUpdateLayout(ImGuiTable* table)
     table->BorderX1 = table->InnerClipRect.Min.x;// +((table->Flags & ImGuiTableFlags_BordersOuter) ? 0.0f : -1.0f);
     table->BorderX2 = table->InnerClipRect.Max.x;// +((table->Flags & ImGuiTableFlags_BordersOuter) ? 0.0f : +1.0f);
 
-    // [Part 9] Allocate draw channels and setup background cliprect
+    // [Part 9] Allocate plot channels and setup background cliprect
     TableSetupDrawChannels(table);
 
     // [Part 10] Hit testing on borders
@@ -1261,7 +1261,7 @@ void    ImGui::EndTable()
 #if 0
     // Strip out dummy channel draw calls
     // We have no way to prevent user submitting direct ImDrawList calls into a hidden column (but ImGui:: calls will be clipped out)
-    // Pros: remove draw calls which will have no effect. since they'll have zero-size cliprect they may be early out anyway.
+    // Pros: remove plot calls which will have no effect. since they'll have zero-size cliprect they may be early out anyway.
     // Cons: making it harder for users watching metrics/debugger to spot the wasted vertices.
     if (table->DummyDrawChannel != (ImGuiTableColumnIdx)-1)
     {
@@ -1271,7 +1271,7 @@ void    ImGui::EndTable()
     }
 #endif
 
-    // Flatten channels and merge draw calls
+    // Flatten channels and merge plot calls
     ImDrawListSplitter* splitter = table->DrawSplitter;
     splitter->SetCurrentChannel(inner_window->DrawList, 0);
     if ((table->Flags & ImGuiTableFlags_NoClip) == 0)
@@ -1611,7 +1611,7 @@ void ImGui::TableSetBgColor(ImGuiTableBgTarget target, ImU32 color, int column_n
     if (color == IM_COL32_DISABLE)
         color = 0;
 
-    // We cannot draw neither the cell or row background immediately as we don't know the row height at this point in time.
+    // We cannot plot neither the cell or row background immediately as we don't know the row height at this point in time.
     switch (target)
     {
     case ImGuiTableBgTarget_CellBg:
@@ -1949,7 +1949,7 @@ void ImGui::TableBeginCell(ImGuiTable* table, int column_n)
     window->WorkRect.Max.x = column->WorkMaxX;
     window->DC.ItemWidth = column->ItemWidth;
 
-    // To allow ImGuiListClipper to function we propagate our row height
+    // To allow ImGuiListClipper to Function we propagate our row height
     if (!column->IsEnabled)
         window->DC.CursorPos.y = ImMax(window->DC.CursorPos.y, table->RowPosY2);
 
@@ -1969,7 +1969,7 @@ void ImGui::TableBeginCell(ImGuiTable* table, int column_n)
     }
     else
     {
-        // FIXME-TABLE: Could avoid this if draw channel is dummy channel?
+        // FIXME-TABLE: Could avoid this if plot channel is dummy channel?
         SetWindowClipRectBeforeSetChannel(window, column->ClipRect);
         table->DrawSplitter->SetCurrentChannel(window->DrawList, column->DrawChannelCurrent);
     }
@@ -2235,18 +2235,18 @@ void ImGui::TablePopBackgroundChannel()
     table->DrawSplitter->SetCurrentChannel(window->DrawList, column->DrawChannelCurrent);
 }
 
-// Allocate draw channels. Called by TableUpdateLayout()
+// Allocate plot channels. Called by TableUpdateLayout()
 // - We allocate them following storage order instead of display order so reordering columns won't needlessly
 //   increase overall dormant memory cost.
-// - We isolate headers draw commands in their own channels instead of just altering clip rects.
-//   This is in order to facilitate merging of draw commands.
-// - After crossing FreezeRowsCount, all columns see their current draw channel changed to a second set of channels.
-// - We only use the dummy draw channel so we can push a null clipping rectangle into it without affecting other
+// - We isolate headers plot commands in their own channels instead of just altering clip rects.
+//   This is in order to facilitate merging of plot commands.
+// - After crossing FreezeRowsCount, all columns see their current plot channel changed to a second set of channels.
+// - We only use the dummy plot channel so we can push a null clipping rectangle into it without affecting other
 //   channels, while simplifying per-row/per-cell overhead. It will be empty and discarded when merged.
-// - We allocate 1 or 2 background draw channels. This is because we know TablePushBackgroundChannel() is only used for
-//   horizontal spanning. If we allowed vertical spanning we'd need one background draw channel per merge group (1-4).
+// - We allocate 1 or 2 background plot channels. This is because we know TablePushBackgroundChannel() is only used for
+//   horizontal spanning. If we allowed vertical spanning we'd need one background plot channel per merge group (1-4).
 // Draw channel allocation (before merging):
-// - NoClip                       --> 2+D+1 channels: bg0/1 + bg2 + foreground (same clip rect == always 1 draw call)
+// - NoClip                       --> 2+D+1 channels: bg0/1 + bg2 + foreground (same clip rect == always 1 plot call)
 // - Clip                         --> 2+D+N channels
 // - FreezeRows                   --> 2+D+N*2 (unless scrolling value is zero)
 // - FreezeRows || FreezeColunns  --> 3+D+N*2 (unless scrolling value is zero)
@@ -2281,23 +2281,23 @@ void ImGui::TableSetupDrawChannels(ImGuiTable* table)
         column->DrawChannelCurrent = column->DrawChannelFrozen;
     }
 
-    // Initial draw cmd starts with a BgClipRect that matches the one of its host, to facilitate merge draw commands by default.
+    // Initial draw cmd starts with a BgClipRect that matches the one of its host, to facilitate merge plot commands by default.
     // All our cell highlight are manually clipped with BgClipRect. When unfreezing it will be made smaller to fit scrolling rect.
-    // (This technically isn't part of setting up draw channels, but is reasonably related to be done here)
+    // (This technically isn't part of setting up plot channels, but is reasonably related to be done here)
     table->BgClipRect = table->InnerClipRect;
     table->Bg0ClipRectForDrawCmd = table->OuterWindow->ClipRect;
     table->Bg2ClipRectForDrawCmd = table->HostClipRect;
     IM_ASSERT(table->BgClipRect.Min.y <= table->BgClipRect.Max.y);
 }
 
-// This function reorder draw channels based on matching clip rectangle, to facilitate merging them. Called by EndTable().
+// This Function reorder plot channels based on matching clip rectangle, to facilitate merging them. Called by EndTable().
 // For simplicity we call it TableMergeDrawChannels() but in fact it only reorder channels + overwrite ClipRect,
 // actual merging is done by table->DrawSplitter.Merge() which is called right after TableMergeDrawChannels().
 //
 // Columns where the contents didn't stray off their local clip rectangle can be merged. To achieve
 // this we merge their clip rect and make them contiguous in the channel list, so they can be merged
-// by the call to DrawSplitter.Merge() following to the call to this function.
-// We reorder draw commands by arranging them into a maximum of 4 distinct groups:
+// by the call to DrawSplitter.Merge() following to the call to this Function.
+// We reorder plot commands by arranging them into a maximum of 4 distinct groups:
 //
 //   1 group:               2 groups:              2 groups:              4 groups:
 //   [ 0. ] no freeze       [ 0. ] row freeze      [ 01 ] col freeze      [ 01 ] row+col freeze
@@ -2307,18 +2307,18 @@ void ImGui::TableSetupDrawChannels(ImGuiTable* table)
 // When the contents of a column didn't stray off its limit, we move its channels into the corresponding group
 // based on its position (within frozen rows/columns groups or not).
 // At the end of the operation our 1-4 groups will each have a ImDrawCmd using the same ClipRect.
-// This function assume that each column are pointing to a distinct draw channel,
+// This Function assume that each column are pointing to a distinct plot channel,
 // otherwise merge_group->ChannelsCount will not match set bit count of merge_group->ChannelsMask.
 //
 // Column channels will not be merged into one of the 1-4 groups in the following cases:
 // - The contents stray off its clipping rectangle (we only compare the MaxX value, not the MinX value).
 //   Direct ImDrawList calls won't be taken into account by default, if you use them make sure the ImGui:: bounds
 //   matches, by e.g. calling SetCursorScreenPos().
-// - The channel uses more than one draw command itself. We drop all our attempt at merging stuff here..
+// - The channel uses more than one plot command itself. We drop all our attempt at merging stuff here..
 //   we could do better but it's going to be rare and probably not worth the hassle.
-// Columns for which the draw channel(s) haven't been merged with other will use their own ImDrawCmd.
+// Columns for which the plot channel(s) haven't been merged with other will use their own ImDrawCmd.
 //
-// This function is particularly tricky to understand.. take a breath.
+// This Function is particularly tricky to understand.. take a breath.
 void ImGui::TableMergeDrawChannels(ImGuiTable* table)
 {
     ImGuiContext& g = *GImGui;
@@ -2351,7 +2351,7 @@ void ImGui::TableMergeDrawChannels(ImGuiTable* table)
         {
             const int channel_no = (merge_group_sub_n == 0) ? column->DrawChannelFrozen : column->DrawChannelUnfrozen;
 
-            // Don't attempt to merge if there are multiple draw calls within the column
+            // Don't attempt to merge if there are multiple plot calls within the column
             ImDrawChannel* src_channel = &splitter->_Channels[channel_no];
             if (src_channel->_CmdBuffer.Size > 0 && src_channel->_CmdBuffer.back().ElemCount == 0)
                 src_channel->_CmdBuffer.pop_back();
@@ -2384,7 +2384,7 @@ void ImGui::TableMergeDrawChannels(ImGuiTable* table)
             merge_group_mask |= (1 << merge_group_n);
         }
 
-        // Invalidate current draw channel
+        // Invalidate current plot channel
         // (we don't clear DrawChannelFrozen/DrawChannelUnfrozen solely to facilitate debugging/later inspection of data)
         column->DrawChannelCurrent = (ImGuiTableDrawChannelIdx)-1;
     }
@@ -2428,7 +2428,7 @@ void ImGui::TableMergeDrawChannels(ImGuiTable* table)
                 MergeGroup* merge_group = &merge_groups[merge_group_n];
                 ImRect merge_clip_rect = merge_group->ClipRect;
 
-                // Extend outer-most clip limits to match those of host, so draw calls can be merged even if
+                // Extend outer-most clip limits to match those of host, so plot calls can be merged even if
                 // outer-most columns have some outer padding offsetting them from their parent ClipRect.
                 // The principal cases this is dealing with are:
                 // - On a same-window table (not scrolling = single group), all fitting columns ClipRect -> will extend and match host ClipRect -> will merge
@@ -2525,7 +2525,7 @@ void ImGui::TableDrawBorders(ImGuiTable* table)
                 continue;
 
             // Draw in outer window so right-most column won't be clipped
-            // Always draw full height border when being resized/hovered, or on the delimitation of frozen column scrolling.
+            // Always plot full height border when being resized/hovered, or on the delimitation of frozen column scrolling.
             ImU32 col;
             float draw_y2;
             if (is_hovered || is_resized || is_frozen_separator)
@@ -2548,7 +2548,7 @@ void ImGui::TableDrawBorders(ImGuiTable* table)
     // FIXME: could use AddRect or explicit VLine/HLine helper?
     if (table->Flags & ImGuiTableFlags_BordersOuter)
     {
-        // Display outer border offset by 1 which is a simple way to display it without adding an extra draw call
+        // Display outer border offset by 1 which is a simple way to display it without adding an extra plot call
         // (Without the offset, in outer_window it would be rendered behind cells, because child windows are above their
         // parent. In inner_window, it won't reach out over scrollbars. Another weird solution would be to display part
         // of it in inner window, and the part that's over scrollbars in the outer window..)
@@ -2849,7 +2849,7 @@ void ImGui::TableHeadersRow()
 }
 
 // Emit a column header (text + optional sort order)
-// We cpu-clip text here so that all columns headers can be merged into a same draw call.
+// We cpu-clip text here so that all columns headers can be merged into a same plot call.
 // Note that because of how we cpu-clip and display sorting indicators, you _cannot_ use SameLine() after a TableHeader()
 void ImGui::TableHeader(const char* label)
 {
@@ -2977,7 +2977,7 @@ void ImGui::TableHeader(const char* label)
     }
 
     // Render clipped label. Clipping here ensure that in the majority of situations, all our header cells will
-    // be merged into a single draw call.
+    // be merged into a single plot call.
     //window->DrawList->AddCircleFilled(ImVec2(ellipsis_max, label_pos.y), 40, IM_COL32_WHITE);
     RenderTextEllipsis(window->DrawList, label_pos, ImVec2(ellipsis_max, label_pos.y + label_height + g.Style.FramePadding.y), ellipsis_max, ellipsis_max, label, label_end, &label_size);
 
@@ -3766,7 +3766,7 @@ void ImGui::PushColumnClipRect(int column_index)
     PushClipRect(column->ClipRect.Min, column->ClipRect.Max, false);
 }
 
-// Get into the columns background draw command (which is generally the same draw command as before we called BeginColumns)
+// Get into the columns background draw command (which is generally the same plot command as before we called BeginColumns)
 void ImGui::PushColumnsBackground()
 {
     ImGuiWindow* window = GetCurrentWindowRead();

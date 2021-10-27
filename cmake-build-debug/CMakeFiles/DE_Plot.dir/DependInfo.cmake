@@ -17,9 +17,11 @@ set(CMAKE_C_COMPILER_ID "AppleClang")
 set(CMAKE_C_TARGET_INCLUDE_PATH
   "../include"
   "../include/imgui"
+  "../include/implot"
   "/usr/local/include"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/Users/m8dotpie/Desktop/Projects/DE_Plot/src/function.cpp" "/Users/m8dotpie/Desktop/Projects/DE_Plot/cmake-build-debug/CMakeFiles/DE_Plot.dir/src/function.cpp.o"
   "/Users/m8dotpie/Desktop/Projects/DE_Plot/src/imgui/imgui.cpp" "/Users/m8dotpie/Desktop/Projects/DE_Plot/cmake-build-debug/CMakeFiles/DE_Plot.dir/src/imgui/imgui.cpp.o"
   "/Users/m8dotpie/Desktop/Projects/DE_Plot/src/imgui/imgui_demo.cpp" "/Users/m8dotpie/Desktop/Projects/DE_Plot/cmake-build-debug/CMakeFiles/DE_Plot.dir/src/imgui/imgui_demo.cpp.o"
   "/Users/m8dotpie/Desktop/Projects/DE_Plot/src/imgui/imgui_draw.cpp" "/Users/m8dotpie/Desktop/Projects/DE_Plot/cmake-build-debug/CMakeFiles/DE_Plot.dir/src/imgui/imgui_draw.cpp.o"
@@ -27,6 +29,9 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/m8dotpie/Desktop/Projects/DE_Plot/src/imgui/imgui_impl_opengl3.cpp" "/Users/m8dotpie/Desktop/Projects/DE_Plot/cmake-build-debug/CMakeFiles/DE_Plot.dir/src/imgui/imgui_impl_opengl3.cpp.o"
   "/Users/m8dotpie/Desktop/Projects/DE_Plot/src/imgui/imgui_tables.cpp" "/Users/m8dotpie/Desktop/Projects/DE_Plot/cmake-build-debug/CMakeFiles/DE_Plot.dir/src/imgui/imgui_tables.cpp.o"
   "/Users/m8dotpie/Desktop/Projects/DE_Plot/src/imgui/imgui_widgets.cpp" "/Users/m8dotpie/Desktop/Projects/DE_Plot/cmake-build-debug/CMakeFiles/DE_Plot.dir/src/imgui/imgui_widgets.cpp.o"
+  "/Users/m8dotpie/Desktop/Projects/DE_Plot/src/implot/implot.cpp" "/Users/m8dotpie/Desktop/Projects/DE_Plot/cmake-build-debug/CMakeFiles/DE_Plot.dir/src/implot/implot.cpp.o"
+  "/Users/m8dotpie/Desktop/Projects/DE_Plot/src/implot/implot_demo.cpp" "/Users/m8dotpie/Desktop/Projects/DE_Plot/cmake-build-debug/CMakeFiles/DE_Plot.dir/src/implot/implot_demo.cpp.o"
+  "/Users/m8dotpie/Desktop/Projects/DE_Plot/src/implot/implot_items.cpp" "/Users/m8dotpie/Desktop/Projects/DE_Plot/cmake-build-debug/CMakeFiles/DE_Plot.dir/src/implot/implot_items.cpp.o"
   "/Users/m8dotpie/Desktop/Projects/DE_Plot/src/main.cpp" "/Users/m8dotpie/Desktop/Projects/DE_Plot/cmake-build-debug/CMakeFiles/DE_Plot.dir/src/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
@@ -35,6 +40,7 @@ set(CMAKE_CXX_COMPILER_ID "AppleClang")
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../include"
   "../include/imgui"
+  "../include/implot"
   "/usr/local/include"
   )
 

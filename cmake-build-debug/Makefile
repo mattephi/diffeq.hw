@@ -48,10 +48,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = "/Users/m8dotpie/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/212.4746.93/CLion.app/Contents/bin/cmake/mac/bin/cmake"
+CMAKE_COMMAND = "/Users/m8dotpie/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/212.5284.51/CLion.app/Contents/bin/cmake/mac/bin/cmake"
 
 # The command to remove a file.
-RM = "/Users/m8dotpie/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/212.4746.93/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E rm -f
+RM = "/Users/m8dotpie/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/212.5284.51/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /Users/m8dotpie/Desktop/Projects/DE_Plot/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	"/Users/m8dotpie/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/212.4746.93/CLion.app/Contents/bin/cmake/mac/bin/cmake" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"/Users/m8dotpie/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/212.5284.51/CLion.app/Contents/bin/cmake/mac/bin/cmake" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -78,7 +78,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	"/Users/m8dotpie/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/212.4746.93/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E echo No\ interactive\ CMake\ dialog\ available.
+	"/Users/m8dotpie/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/212.5284.51/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -128,6 +128,30 @@ DE_Plot: cmake_check_build_system
 DE_Plot/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DE_Plot.dir/build.make CMakeFiles/DE_Plot.dir/build
 .PHONY : DE_Plot/fast
+
+src/function.o: src/function.cpp.o
+.PHONY : src/function.o
+
+# target to build an object file
+src/function.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DE_Plot.dir/build.make CMakeFiles/DE_Plot.dir/src/function.cpp.o
+.PHONY : src/function.cpp.o
+
+src/function.i: src/function.cpp.i
+.PHONY : src/function.i
+
+# target to preprocess a source file
+src/function.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DE_Plot.dir/build.make CMakeFiles/DE_Plot.dir/src/function.cpp.i
+.PHONY : src/function.cpp.i
+
+src/function.s: src/function.cpp.s
+.PHONY : src/function.s
+
+# target to generate assembly for a file
+src/function.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DE_Plot.dir/build.make CMakeFiles/DE_Plot.dir/src/function.cpp.s
+.PHONY : src/function.cpp.s
 
 src/glad/glad.o: src/glad/glad.c.o
 .PHONY : src/glad/glad.o
@@ -321,6 +345,78 @@ src/imgui/imgui_widgets.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DE_Plot.dir/build.make CMakeFiles/DE_Plot.dir/src/imgui/imgui_widgets.cpp.s
 .PHONY : src/imgui/imgui_widgets.cpp.s
 
+src/implot/implot.o: src/implot/implot.cpp.o
+.PHONY : src/implot/implot.o
+
+# target to build an object file
+src/implot/implot.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DE_Plot.dir/build.make CMakeFiles/DE_Plot.dir/src/implot/implot.cpp.o
+.PHONY : src/implot/implot.cpp.o
+
+src/implot/implot.i: src/implot/implot.cpp.i
+.PHONY : src/implot/implot.i
+
+# target to preprocess a source file
+src/implot/implot.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DE_Plot.dir/build.make CMakeFiles/DE_Plot.dir/src/implot/implot.cpp.i
+.PHONY : src/implot/implot.cpp.i
+
+src/implot/implot.s: src/implot/implot.cpp.s
+.PHONY : src/implot/implot.s
+
+# target to generate assembly for a file
+src/implot/implot.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DE_Plot.dir/build.make CMakeFiles/DE_Plot.dir/src/implot/implot.cpp.s
+.PHONY : src/implot/implot.cpp.s
+
+src/implot/implot_demo.o: src/implot/implot_demo.cpp.o
+.PHONY : src/implot/implot_demo.o
+
+# target to build an object file
+src/implot/implot_demo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DE_Plot.dir/build.make CMakeFiles/DE_Plot.dir/src/implot/implot_demo.cpp.o
+.PHONY : src/implot/implot_demo.cpp.o
+
+src/implot/implot_demo.i: src/implot/implot_demo.cpp.i
+.PHONY : src/implot/implot_demo.i
+
+# target to preprocess a source file
+src/implot/implot_demo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DE_Plot.dir/build.make CMakeFiles/DE_Plot.dir/src/implot/implot_demo.cpp.i
+.PHONY : src/implot/implot_demo.cpp.i
+
+src/implot/implot_demo.s: src/implot/implot_demo.cpp.s
+.PHONY : src/implot/implot_demo.s
+
+# target to generate assembly for a file
+src/implot/implot_demo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DE_Plot.dir/build.make CMakeFiles/DE_Plot.dir/src/implot/implot_demo.cpp.s
+.PHONY : src/implot/implot_demo.cpp.s
+
+src/implot/implot_items.o: src/implot/implot_items.cpp.o
+.PHONY : src/implot/implot_items.o
+
+# target to build an object file
+src/implot/implot_items.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DE_Plot.dir/build.make CMakeFiles/DE_Plot.dir/src/implot/implot_items.cpp.o
+.PHONY : src/implot/implot_items.cpp.o
+
+src/implot/implot_items.i: src/implot/implot_items.cpp.i
+.PHONY : src/implot/implot_items.i
+
+# target to preprocess a source file
+src/implot/implot_items.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DE_Plot.dir/build.make CMakeFiles/DE_Plot.dir/src/implot/implot_items.cpp.i
+.PHONY : src/implot/implot_items.cpp.i
+
+src/implot/implot_items.s: src/implot/implot_items.cpp.s
+.PHONY : src/implot/implot_items.s
+
+# target to generate assembly for a file
+src/implot/implot_items.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DE_Plot.dir/build.make CMakeFiles/DE_Plot.dir/src/implot/implot_items.cpp.s
+.PHONY : src/implot/implot_items.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -354,6 +450,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... DE_Plot"
+	@echo "... src/function.o"
+	@echo "... src/function.i"
+	@echo "... src/function.s"
 	@echo "... src/glad/glad.o"
 	@echo "... src/glad/glad.i"
 	@echo "... src/glad/glad.s"
@@ -378,6 +477,15 @@ help:
 	@echo "... src/imgui/imgui_widgets.o"
 	@echo "... src/imgui/imgui_widgets.i"
 	@echo "... src/imgui/imgui_widgets.s"
+	@echo "... src/implot/implot.o"
+	@echo "... src/implot/implot.i"
+	@echo "... src/implot/implot.s"
+	@echo "... src/implot/implot_demo.o"
+	@echo "... src/implot/implot_demo.i"
+	@echo "... src/implot/implot_demo.s"
+	@echo "... src/implot/implot_items.o"
+	@echo "... src/implot/implot_items.i"
+	@echo "... src/implot/implot_items.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

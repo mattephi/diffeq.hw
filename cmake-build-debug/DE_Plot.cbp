@@ -46,6 +46,7 @@
 				<Compiler>
 					<Add directory="/Users/m8dotpie/Desktop/Projects/DE_Plot/include"/>
 					<Add directory="/Users/m8dotpie/Desktop/Projects/DE_Plot/include/imgui"/>
+					<Add directory="/Users/m8dotpie/Desktop/Projects/DE_Plot/include/implot"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
@@ -69,6 +70,7 @@
 				<Compiler>
 					<Add directory="/Users/m8dotpie/Desktop/Projects/DE_Plot/include"/>
 					<Add directory="/Users/m8dotpie/Desktop/Projects/DE_Plot/include/imgui"/>
+					<Add directory="/Users/m8dotpie/Desktop/Projects/DE_Plot/include/implot"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
@@ -84,6 +86,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/include/SystemConfiguration.h">
+			<Option target="DE_Plot"/>
+		</Unit>
+		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/include/function.h">
+			<Option target="DE_Plot"/>
+		</Unit>
 		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/include/imgui/imconfig.h">
 			<Option target="DE_Plot"/>
 		</Unit>
@@ -111,6 +119,18 @@
 		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/include/imgui/imstb_truetype.h">
 			<Option target="DE_Plot"/>
 		</Unit>
+		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/include/implot/implot.h">
+			<Option target="DE_Plot"/>
+		</Unit>
+		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/include/implot/implot_internal.h">
+			<Option target="DE_Plot"/>
+		</Unit>
+		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/include/mixin.h">
+			<Option target="DE_Plot"/>
+		</Unit>
+		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/src/function.cpp">
+			<Option target="DE_Plot"/>
+		</Unit>
 		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/src/glad/glad.c">
 			<Option target="DE_Plot"/>
 		</Unit>
@@ -133,6 +153,15 @@
 			<Option target="DE_Plot"/>
 		</Unit>
 		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/src/imgui/imgui_widgets.cpp">
+			<Option target="DE_Plot"/>
+		</Unit>
+		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/src/implot/implot.cpp">
+			<Option target="DE_Plot"/>
+		</Unit>
+		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/src/implot/implot_demo.cpp">
+			<Option target="DE_Plot"/>
+		</Unit>
+		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/src/implot/implot_items.cpp">
 			<Option target="DE_Plot"/>
 		</Unit>
 		<Unit filename="/Users/m8dotpie/Desktop/Projects/DE_Plot/src/main.cpp">

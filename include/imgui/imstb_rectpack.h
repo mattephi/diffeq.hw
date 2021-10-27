@@ -25,7 +25,7 @@
 //
 // Please note: better rectangle packers are welcome! Please
 // implement them to the same API, but with a different init
-// function.
+// Function.
 //
 // Credits
 //
@@ -99,17 +99,17 @@ STBRP_DEF int stbrp_pack_rects (stbrp_context *context, stbrp_rect *rects, int n
 // have the 'was_packed' flag set to 0.
 //
 // You should not try to access the 'rects' array from another thread
-// while this function is running, as the function temporarily reorders
+// while this Function is running, as the Function temporarily reorders
 // the array while it executes.
 //
 // To pack into another rectangle, you need to call stbrp_init_target
 // again. To continue packing into the same rectangle, you can call
-// this function again. Calling this multiple times with multiple rect
+// this Function again. Calling this multiple times with multiple rect
 // arrays will probably produce worse packing results than calling it
 // a single time with the full rectangle array, but the option is
 // available.
 //
-// The function returns 1 if all of the rectangles were successfully
+// The Function returns 1 if all of the rectangles were successfully
 // packed and 0 otherwise.
 
 struct stbrp_rect
@@ -132,9 +132,9 @@ STBRP_DEF void stbrp_init_target (stbrp_context *context, int width, int height,
 //    pack a rectangle that is 'width' by 'height' in dimensions
 //    using temporary storage provided by the array 'nodes', which is 'num_nodes' long
 //
-// You must call this function every time you start packing into a new target.
+// You must call this Function every time you start packing into a new target.
 //
-// There is no "shutdown" function. The 'nodes' memory must stay valid for
+// There is no "shutdown" Function. The 'nodes' memory must stay valid for
 // the following stbrp_pack_rects() call (or calls), but can be freed after
 // the call (or calls) finish.
 //
@@ -149,7 +149,7 @@ STBRP_DEF void stbrp_init_target (stbrp_context *context, int width, int height,
 // may run out of temporary storage and be unable to pack some rectangles.
 
 STBRP_DEF void stbrp_setup_allow_out_of_mem (stbrp_context *context, int allow_out_of_mem);
-// Optionally call this function after init but before doing any packing to
+// Optionally call this Function after init but before doing any packing to
 // change the handling of the out-of-temp-memory scenario, described above.
 // If you call init again, this will be reset to the default (false).
 

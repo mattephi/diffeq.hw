@@ -28,7 +28,7 @@
 //
 // DEPENDENCIES
 //
-// Uses the C runtime function 'memmove', which you can override
+// Uses the C runtime Function 'memmove', which you can override
 // by defining STB_TEXTEDIT_memmove before the implementation.
 // Uses no other functions. Performs no runtime allocations.
 //
@@ -181,7 +181,7 @@
 // then test for their presence in e.g. STB_TEXTEDIT_K_WORDLEFT. For example,
 // my Windows implementations add an additional CONTROL bit, and an additional KEYDOWN
 // bit. Then all of the STB_TEXTEDIT_K_ values bitwise-or in the KEYDOWN bit,
-// and I pass both WM_KEYDOWN and WM_CHAR events to the "key" function in the
+// and I pass both WM_KEYDOWN and WM_CHAR events to the "key" Function in the
 // API below. The control keys will only match WM_KEYDOWN events because of the
 // keydown bit I add, and STB_TEXTEDIT_KEYTOTEXT only tests for the KEYDOWN
 // bit so it only decodes WM_CHAR events.
@@ -981,7 +981,7 @@ retry:
                state->select_end = state->cursor;
 
             // go to previous line
-            // (we need to scan previous line the hard way. maybe we could expose this as a new API function?)
+            // (we need to scan previous line the hard way. maybe we could expose this as a new API Function?)
             prev_scan = find.prev_first > 0 ? find.prev_first - 1 : 0;
             while (prev_scan > 0 && STB_TEXTEDIT_GETCHAR(str, prev_scan - 1) != STB_TEXTEDIT_NEWLINE)
                --prev_scan;

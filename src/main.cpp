@@ -1,22 +1,23 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include "imgui.h"
+#include "implot.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 
 #include <iostream>
+#include <function.h>
+#include <SystemConfiguration.h>
+
+EquationConfiguration::Info* EquationConfiguration::info = nullptr;
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
-void processInput(GLFWwindow *window);
 
-// settings
-const unsigned int SCR_WIDTH = 800;
-const unsigned int SCR_HEIGHT = 600;
+const unsigned int SCR_WIDTH = 1600;
+const unsigned int SCR_HEIGHT = 900;
 
 int main()
 {
-    // glfw: initialize and configure
-    // ------------------------------
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -26,10 +27,8 @@ int main()
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 #endif
 
-    // glfw window creation
-    // --------------------
-    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
-    if (window == NULL)
+    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "IVP Analysis and Solution", nullptr, nullptr);
+    if (window == nullptr)
     {
         std::cout << "Failed to create GLFW window" << std::endl;
         glfwTerminate();
@@ -38,73 +37,105 @@ int main()
     glfwMakeContextCurrent(window);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-    // glad: load all OpenGL function pointers
-    // ---------------------------------------
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
         std::cout << "Failed to initialize GLAD" << std::endl;
         return -1;
     }
-    // Setup Dear ImGui context
+
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
+    ImPlot::CreateContext();
     ImGuiIO& io = ImGui::GetIO(); (void)io;
-    //io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
-    //io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
 
-    // Setup Dear ImGui style
     ImGui::StyleColorsDark();
-    //ImGui::StyleColorsClassic();
 
-    // Setup Platform/Renderer backends
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init("#version 150");
-    // render loop
-    // -----------
-    bool yes = true;
+
+    bool controller_active = true;
+    bool plot_active = true;
+
     while (!glfwWindowShouldClose(window))
     {
-        // input
-        // -----
+        std::vector<Function*> functions = {
+                new Function(EquationConfiguration::get().getExactSolution(), "Exact Solution"),
+                new EulerMethod(EquationConfiguration::get().getFunction()),
+                new ImprovedEulerMethod(EquationConfiguration::get().getFunction()),
+                new RungeKuttaMethod(EquationConfiguration::get().getFunction())
+        };
+
+        std::vector<Function*> gteFunctions, lteFunctions, taeFunctions;
+        for (int i = 1; i < functions.size(); ++i) {
+            gteFunctions.push_back(new GlobalErrorFunction(functions[0], dynamic_cast<IterativeFunction*>(functions[i]), functions[i]->getName() + " GTE"));
+            lteFunctions.push_back(new LocalErrorFunction(functions[0], dynamic_cast<IterativeFunction*>(functions[i]), functions[i]->getName() + " LTE"));
+            taeFunctions.push_back(new TotalErrorFunction(functions[0], dynamic_cast<IterativeFunction*>(functions[i]), functions[i]->getName() + " TAE"));
+        }
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
-        processInput(window);
-        ImGui::ShowDemoWindow(&yes);
 
-        // render
-        // ------
+
+        ImGui::Begin("Controller", &controller_active);
+        ImGui::DragFloat("x0", &EquationConfiguration::get().x_0, 0.1, -100.0, 100.0);
+        ImGui::DragFloat("y0", &EquationConfiguration::get().y_0, 0.1, -100.0, 100.0);
+        ImGui::DragFloat("X", &EquationConfiguration::get().x_max, 0.3, -100.0, 100.0);
+        ImGui::DragInt("n0", &EquationConfiguration::get().n_0, 1, 0, EquationConfiguration::get().n);
+        ImGui::DragInt("N", &EquationConfiguration::get().n, 1, 1, 50);
+        EquationConfiguration::get().n_0 = std::min(EquationConfiguration::get().n_0, EquationConfiguration::get().n - 1);
+        ImGui::End();
+
+        ImGui::Begin("Solutions Plot", &plot_active);
+        if (ImPlot::BeginPlot("Solutions")) {
+            for (auto function : functions) {
+                function->plot();
+            }
+            ImPlot::EndPlot();
+        }
+        ImGui::End();
+
+        ImGui::Begin("GTE Plot", &plot_active);
+        if (ImPlot::BeginPlot("Global Truncation Errors")) {
+            for (auto function : gteFunctions) {
+                function->plot();
+            }
+            ImPlot::EndPlot();
+        }
+        ImGui::End();
+
+        ImGui::Begin("LTE Plot", &plot_active);
+        if (ImPlot::BeginPlot("Local Truncation Errors")) {
+            for (auto function : lteFunctions) {
+                function->plot();
+            }
+            ImPlot::EndPlot();
+        }
+        ImGui::End();
+
+        ImGui::Begin("TAE Plot", &plot_active);
+        if (ImPlot::BeginPlot("Total Approximation Errors")) {
+            for (auto function : taeFunctions) {
+                function->plot();
+            }
+            ImPlot::EndPlot();
+        }
+        ImGui::End();
+
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-        // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
-        // -------------------------------------------------------------------------------
+
         glfwSwapBuffers(window);
         glfwPollEvents();
 
     }
-
-    // glfw: terminate, clearing all previously allocated GLFW resources.
-    // ------------------------------------------------------------------
     glfwTerminate();
     return 0;
 }
 
-// process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly
-// ---------------------------------------------------------------------------------------------------------
-void processInput(GLFWwindow *window)
-{
-    if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-        glfwSetWindowShouldClose(window, true);
-}
-
-// glfw: whenever the window size changed (by OS or user resize) this callback function executes
-// ---------------------------------------------------------------------------------------------
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
-    // make sure the viewport matches the new window dimensions; note that width and
-    // height will be significantly larger than specified on retina displays.
     glViewport(0, 0, width, height);
 }

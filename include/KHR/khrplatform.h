@@ -83,7 +83,7 @@
  *    KHRONOS_APIENTRY
  *    KHRONOS_APIATTRIBUTES
  *
- * These may be used in function prototypes as:
+ * These may be used in Function prototypes as:
  *
  *      KHRONOS_APICALL void KHRONOS_APIENTRY funcname(
  *                                  int arg1,
@@ -97,7 +97,7 @@
 /*-------------------------------------------------------------------------
  * Definition of KHRONOS_APICALL
  *-------------------------------------------------------------------------
- * This precedes the return type of the function in the function prototype.
+ * This precedes the return type of the Function in the Function prototype.
  */
 #if defined(KHRONOS_STATIC)
     /* If the preprocessor constant KHRONOS_STATIC is defined, make the
@@ -116,8 +116,8 @@
 /*-------------------------------------------------------------------------
  * Definition of KHRONOS_APIENTRY
  *-------------------------------------------------------------------------
- * This follows the return type of the function  and precedes the function
- * name in the function prototype.
+ * This follows the return type of the Function  and precedes the Function
+ * name in the Function prototype.
  */
 #if defined(_WIN32) && !defined(_WIN32_WCE) && !defined(__SCITECH_SNAP__)
     /* Win32 but not WinCE */
@@ -129,7 +129,7 @@
 /*-------------------------------------------------------------------------
  * Definition of KHRONOS_APIATTRIBUTES
  *-------------------------------------------------------------------------
- * This follows the closing parenthesis of the function prototype arguments.
+ * This follows the closing parenthesis of the Function prototype arguments.
  */
 #if defined (__ARMCC_2__)
 #define KHRONOS_APIATTRIBUTES __softfp

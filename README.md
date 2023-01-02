@@ -17,3 +17,5 @@ A GUI App for plotting numerical methods of solving Differential Equations.
   - [x] GLAD
 - [x] DearImGui
 - [x] ImPlot 
+
+![](practicum/assets/graphs.png)

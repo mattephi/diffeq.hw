@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(DE_Plot)
+project(diffeq_practicum)
 
 if (UNIX)
     if (NOT APPLE)
@@ -45,8 +45,8 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 include_directories(${PROJECT_SOURCE_DIR}/include/imgui)
 include_directories(${PROJECT_SOURCE_DIR}/include/implot)
 
-add_executable(DE_Plot ${SOURCE_FILES})
-target_link_libraries(DE_Plot glfw)
+add_executable(diffeq_practicum ${SOURCE_FILES})
+target_link_libraries(diffeq_practicum glfw)
 
 if (UNIX)
     if (APPLE)

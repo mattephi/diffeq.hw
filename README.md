@@ -1,4 +1,8 @@
-# DE_Plot
+# diffeq.hw
+
+Repository for the homework of the course Differential Equations.
+
+# Computational Practicum
 
 A GUI App for plotting numerical methods of solving Differential Equations.
 
